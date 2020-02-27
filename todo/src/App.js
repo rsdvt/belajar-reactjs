@@ -29,10 +29,10 @@ export default class Todo extends Component {
     return (
       <div className="body">
         <h3>Aplikasi Aktivitas Harian</h3>
-        <form ref="formulir">
-          <input className="form" type="text" ref="jam" placeholder="Jam Aktivitas" />
-          <input className="form" type="text" ref="aktivitas" placeholder="Jenis Aktivitas" />
-          <button onClick={this.addTodo}>Simpan</button>
+        <form className="form-inline" ref="formulir">
+          <input className="form form-control" type="text" ref="jam" placeholder="Jam Aktivitas" />
+          <input className="form form-control" type="text" ref="aktivitas" placeholder="Jenis Aktivitas" />
+          <button className="btn btn-info" onClick={this.addTodo}>Simpan</button>
         </form>
         <hr />
         <div>
@@ -41,7 +41,7 @@ export default class Todo extends Component {
               this.state.todos.map((data, i) =>
                 <li className="hide" key={i}>
                   <div>
-                    <button onClick={() => this.removeTodo(i)}>Hapus</button>
+                    <button className="btn btn-outline-danger mr-1" onClick={() => this.removeTodo(i)}>Hapus</button>
                     {data.jam} : {data.aktivitas}
                   </div>
                 </li>
