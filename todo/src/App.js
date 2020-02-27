@@ -27,11 +27,11 @@ export default class Todo extends Component {
 
   render() {
     return (
-      <div>
+      <div className="body">
         <h3>Aplikasi Aktivitas Harian</h3>
         <form ref="formulir">
-          <input type="text" ref="jam" placeholder="Jam Aktivitas" />
-          <input type="text" ref="aktivitas" placeholder="Jenis Aktivitas" />
+          <input className="form" type="text" ref="jam" placeholder="Jam Aktivitas" />
+          <input className="form" type="text" ref="aktivitas" placeholder="Jenis Aktivitas" />
           <button onClick={this.addTodo}>Simpan</button>
         </form>
         <hr />
@@ -39,7 +39,7 @@ export default class Todo extends Component {
           <ul>
             {
               this.state.todos.map((data, i) =>
-                <li key={i}>
+                <li className="hide" key={i}>
                   <div>
                     <button onClick={() => this.removeTodo(i)}>Hapus</button>
                     {data.jam} : {data.aktivitas}
