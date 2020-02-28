@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Header from './Header';
+import { CSSTransitionGroup } from 'react-transition-group';
 import './App.css'
 
 export default class Todo extends Component {
@@ -28,7 +30,7 @@ export default class Todo extends Component {
   render() {
     return (
       <div className="body">
-        <h3>Aplikasi Aktivitas Harian</h3>
+        <Header />
         <form className="form-inline" ref="formulir">
           <input className="form form-control" type="text" ref="jam" placeholder="Jam Aktivitas" />
           <input className="form form-control" type="text" ref="aktivitas" placeholder="Jenis Aktivitas" />
@@ -37,16 +39,24 @@ export default class Todo extends Component {
         <hr />
         <div>
           <ul>
-            {
-              this.state.todos.map((data, i) =>
-                <li className="hide" key={i}>
-                  <div>
-                    <button className="btn btn-outline-danger mr-1" onClick={() => this.removeTodo(i)}>Hapus</button>
-                    {data.jam} : {data.aktivitas}
-                  </div>
-                </li>
-              )
-            }
+            <CSSTransitionGroup
+              transitionName="animasi"
+              transitionEnter={true}
+              transitionEnterTimeout={500}
+              transitionLeave={true}
+              transitionLeaveTimeout={500}
+            >
+              {
+                this.state.todos.map((data, i) =>
+                  <li className="hide" key={i}>
+                    <div>
+                      <button className="btn btn-outline-danger mr-1" onClick={() => this.removeTodo(i)}>Hapus</button>
+                      {data.jam} : {data.aktivitas}
+                    </div>
+                  </li>
+                )
+              }
+            </CSSTransitionGroup>
           </ul>
         </div>
       </div>

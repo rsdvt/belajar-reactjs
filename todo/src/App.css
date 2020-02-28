@@ -49,3 +49,23 @@
 ul {
   list-style: none;
 }
+
+/* efek transisi saat menambah data aktivitas */
+.animasi-enter {
+  opacity: 0.01;
+}
+
+.animasi-enter .animasi-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+/* efek transisi saat menghapus data aktivitas */
+.animasi-leave {
+  opacity: 1;
+}
+
+.animasi-leave.animasi-leave-active {
+  transform: translateX(-100%);
+  transition: all 500ms ease-in
+}
